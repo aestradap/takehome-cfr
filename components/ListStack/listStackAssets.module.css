@@ -1,0 +1,9 @@
+.xdisplacement {
+    overflowX: auto;
+    display: flex;
+    flexWrap: nowrap;
+    gap: 16px;
+    padding: 16px;
+    flexDirection: 'row';
+    py: 'var(--ListDivider-gap)'
+}
