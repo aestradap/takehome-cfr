@@ -1,9 +1,14 @@
 .xdisplacement {
-    overflowX: auto;
     display: flex;
-    flexWrap: nowrap;
+    flex-wrap: nowrap;
     gap: 16px;
     padding: 16px;
-    flexDirection: 'row';
-    py: 'var(--ListDivider-gap)'
+}
+
+.itemsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 200px;
+    flex-shrink: 0;
 }

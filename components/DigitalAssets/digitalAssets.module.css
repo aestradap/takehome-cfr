@@ -3,21 +3,20 @@
     height: 431px;
     top: 168px;
     left: 52px;
-    gap: 0px;
-
+    gap: 0;
 }
 
 .frame {
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 0 0 8px 8px;
     background-color: #4CAF50;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    box-shadow: 0 4px 4px 0 #00000040;
     display: flex;
     justify-content: center;
     width: 60px;
     height: 60px;
     padding-top: 10px;
     position: absolute;
-    top: 0px;
+    top: 0;
     left: 186px;
 }
 
@@ -26,12 +25,10 @@
     height: 286px;
     position: absolute;
     top: 168px;
-    left: 117px;
-    padding: 10px 0px 0px 0px;
+    left: 137px;
+    padding: 10px 0 0 0;
     gap: 10px;
     border-radius: 8px 24px 8px 24px;
-    border: 3px solid #4CAF50;
-    background-color: #E8F5E9;
 }
 
 .placeholder {
@@ -42,7 +39,6 @@
     top: 8px;
     left: 7px;
     border-radius: 8px 24px 8px 24px;
-    background-image: url("https://s3-alpha-sig.figma.com/img/89e4/e0e9/61a7f4aabd6881fbf0a8c71177e9f63e?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=baEWS95YyyVLKbKaKcdcIUTLzk-OnH7Swkt6Wx1df6eb75aGY3rR3Z4TW4dzE9ysNeDZ3BvrTviku4HplHpjgx1~2qE9X0itXzvE-aqQiOEziM~7dQgHkX45zbkaiSG4qCAyx-ymDdT9mhtF5ki1OC22ZR-iOyTtJSqcWEUG8GsbqGCIh4W9EJVKJgGUCm7nUFNM84YocXpmeDDzduq67HE0ca4VKAgokb0Syq5v7Uex-5XwKaV35iuj-WnP56fxiKvd9r0Vy-5F2PlTuwtzgen-fscnFj7ftFOMWLPAxwG8T93OYBtWHvG8xHLwhsDsP-dN4Aon5aH218UGiosmgQ__");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -52,8 +48,8 @@
     width: 256px;
     height: 52px;
     padding: 10px 16px 10px 16px;
-    gap: 0px;
-    border-radius: 0px 0px 8px 24px;
+    gap: 0;
+    border-radius: 0 0 8px 24px;
     background-color: #00000066 !important;
     position: absolute;
     top: 214px;
@@ -66,30 +62,32 @@
     position: absolute;
     top: 246px;
     left: 52px;
-    padding: 0px 3px 3px 3px;
+    padding: 0 3px 3px 3px;
     gap: 10px;
     border-radius: 24px 8px 24px 8px;
-    border: 3px solid #4CAF50;
-    /*opacity: 0;*/
     background-image: url("https://s3-alpha-sig.figma.com/img/d426/199e/22826acb905b2192ede98d46151ae4ea?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PyOrvyGWCOGt9QQN-tLR8dh3piZx2ho~oBaz0ie9Ym8wkinARs7tFItv6xh~AvMGcKsjMF-PdIyewLvGgEOgAg6DnoSP3GBw-qVW7GQXp~vGERXHbYZw4tBHtIKCnrZ8SgSEyUreMvCrVK-u3dmKQJihHVhJPVAw6FZOW9cMTa08E2sHVakpm6QVNdZp13L9kXQuiP9jVzohBaBG0gPBekYZux6UZky4AQaoYGSCG9ZiJjdfPnBhTUM66R4h5vnCnpjS4X9syW0N6hV1KlpKV8vjhdl3tPZTkHr7n0u2XjqlvfS3wzOFov89UbpOCxtEugkv9VaAGhlYPT25RcaRzg__");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    max-height: 100vh;
+    box-sizing: border-box;
+    margin: 20px;
 }
 
 .webButton {
     width: 60px;
     height: 60px;
-    padding: 10px 0px 0px 0px;
+    padding: 10px 0 0 0;
     gap: 10px;
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 0 8px 8px 0;
     display: flex;
     margin-top: 40px;
     justify-content: center;
-    angle: 90deg;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    /*ang: 90deg;*/
+    box-shadow: 0 4px 4px 0 #00000040;
     background-color: #4CAF50;
     position: absolute;
     left: -3px;
@@ -98,9 +96,9 @@
 .stats {
     width: 335px;
     height: 152px;
-    padding: 10px 0px 0px 0px;
-    gap: 0px;
-    border-radius: 0px 0px 21px 5px;
+    padding: 10px 0 0 0;
+    gap: 0;
+    border-radius: 0 0 21px 5px;
     background: #00000099;
     display: flex;
     justify-content: space-between;
@@ -111,11 +109,12 @@
 }
 
 .item {
-    textAlign: 'center';
+    text-align: center;
     padding: 5px;
     font-weight: bold;
     color: #E8F5E9;
 }
+
 .backItem {
     display: flex;
     justify-content: end;
@@ -126,7 +125,6 @@
 }
 
 .avatartype {
-    background-color: #4CAF50;
     height: 86px;
     width: 86px;
     position: relative;

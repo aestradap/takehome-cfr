@@ -11,7 +11,7 @@ interface ChipsChangeProps {
 }
 
 export default function ChipsChange({
-                                        label = '2.19%',
+                                        label = label,
                                         isPositive = true,
                                         icon = isPositive ? (
                                                 <ArrowCircleUpIcon sx={{ display:'flex',

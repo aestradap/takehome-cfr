@@ -3,10 +3,10 @@
     height: 32px;
     padding: 4px;
     margin: 4px;
-    gap: 0px;
-    border: 2px solid #4CAF50;
-    background-color: #E8F5E9;
-    color: #4CAF50 !important;
+    gap: 0;
+    /*border: 2px solid #4CAF50;*/
+    /*background-color: #E8F5E9;*/
+    /*color: #4CAF50 !important;*/
     font-size: 12px;
     font-weight: bold;
 }

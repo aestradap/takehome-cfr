@@ -12,16 +12,49 @@ import Grid from '@mui/material/Grid2';
 import Chip from '@/components/Chip/Chip';
 import IconButtonDemo from "@/components/IconButton/IconButton";
 import ChipsChange from "@/components/ChipChange/ChipChange";
+import {useAppDispatch} from '@/app/redux/store';
+import {viewReport} from '@/app/redux/slices/assetsSlice';
 
 
-export default function DigitalAsset() {
-    return <div className={styles.group}>
+interface DigitalAssetProps {
+    asset: {
+        keyName: string,
+        idName: string;
+        nominalValue: string;
+        coinType: string;
+        totalValue: string;
+        change24hr: string;
+        primaryColor: string;
+        secundaryColor: string,
+        imgUrl: string,
+    };
+}
+
+export default function DigitalAsset({asset}: DigitalAssetProps) {
+
+    const {
+        keyName, idName, nominalValue,
+        coinType, totalValue, change24hr,
+        primaryColor, secundaryColor, imgUrl
+    } = asset;
+
+    const changeValue = change24hr || '';
+    const valueList = changeValue.split('');
+    const increment = valueList[0] === "+";
+    const incrementValue = valueList.length > 1 ? changeValue.slice(1) : '0';
+
+    const dispatch = useAppDispatch();
+    const handleViewReport = () => {
+        // dispatch(viewReport(idName));
+    };
+
+    return <Box className={styles.group} >
         <Box className={styles.avatarBox}>
-            <Avatar className={styles.avatartype}>
-                <Chip/>
+            <Avatar className={styles.avatartype} sx={{backgroundColor: primaryColor}}>
+                <Chip label={keyName} primary={primaryColor} secundary={secundaryColor}/>
             </Avatar>
         </Box>
-        <div className={styles.card}>
+        <Box className={styles.card} sx={{border: `3px solid ${primaryColor}`}}>
             <div className={styles.webButton}>
                 <IconButtonDemo icon={LanguageIcon} link="/custom-page"/>
             </div>
@@ -30,7 +63,7 @@ export default function DigitalAsset() {
                     <Grid container spacing={2}>
                         <Grid size="grow">
                             <Typography className={styles.item} variant="subtitle1" component="h6">
-                                <b>$137.71</b> usd
+                                <b>{nominalValue}</b>
                             </Typography>
                             <Typography className={styles.item} variant="subtitle1" component="h6">
                                 <b>Price</b>
@@ -38,18 +71,28 @@ export default function DigitalAsset() {
                         </Grid>
                         <Grid size={1}/>
                         <Grid size="grow">
-                            <Typography className={styles.backItem} variant="subtitle1" component="h6">
-                                <ChipsChange/>
-                            </Typography>
-                            <Typography className={styles.backItem} variant="subtitle1" component="h6">
-                                <b>Change 24hrs</b>
-                            </Typography>
+                            {keyName !== 'NFT' ? <>
+                                <Typography className={styles.backItem} variant="subtitle1" component="h6">
+                                    <ChipsChange label={incrementValue} isPositive={increment}/>
+                                </Typography>
+                                <Typography className={styles.backItem} variant="subtitle1" component="h6">
+                                    <b>Change 24hrs</b>
+                                </Typography>
+                            </> : <>
+                                <Typography className={styles.backItem} variant="subtitle1" component="h6">
+                                    <b>{coinType}</b>
+                                </Typography>
+                                <Typography className={styles.backItem} variant="subtitle1" component="h6">
+                                    <b>Crypto chain</b>
+                                </Typography>
+                            </>
+                            }
                         </Grid>
                     </Grid>
                     <Grid container spacing={3}>
                         <Grid size="grow">
                             <Typography className={styles.item} variant="subtitle1" component="h6">
-                                <b>$3.31 T</b>
+                                <b>{totalValue}</b>
                             </Typography>
                             <Typography className={styles.item} variant="subtitle1" component="h6">
                                 <b>Market cap</b>
@@ -61,20 +104,26 @@ export default function DigitalAsset() {
                         </Grid>
                     </Grid>
                 </Box>
-
             </div>
-
-        </div>
-        <div className={styles.logostock}>
-            <div className={styles.placeholder}>
-                <Chip/>
+        </Box>
+        <Box className={styles.logostock}
+             sx={{
+                 border: `3px solid ${primaryColor} !important`,
+                 backgroundColor: `${secundaryColor} !important`
+             }}>
+            <Box className={styles.placeholder} sx={{backgroundImage: `url(${imgUrl})`}}>
+                <Chip label={keyName} primary={primaryColor} secundary={secundaryColor}/>
                 <Typography className={styles.name} variant="h6" component="h6">
-                    Nvidia
+                    {idName}
                 </Typography>
-            </div>
+            </Box>
             <div className={styles.frame}>
-                <IconButtonDemo icon={BookmarkBorderIcon} link="/custom-page"/>
+                <IconButtonDemo
+                    onClik={handleViewReport}
+                    icon={BookmarkBorderIcon}
+                    link="/custom-page"
+                />
             </div>
-        </div>
-    </div>
+        </Box>
+    </Box>
 };
